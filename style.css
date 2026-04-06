@@ -127,11 +127,6 @@ h1 {
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--coal);
 }
-body {
-max-width: 600px;
-margin: 0 auto;
-padding: 20px;
-}
 
 .weapon-name {
   font-family: var(--font-title);
@@ -172,6 +167,51 @@ padding: 20px;
   transition: color var(--ease), transform var(--ease);
 }
 
+.selectors {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.select-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.select-label {
+  font-family: var(--font-title);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.forge-select {
+  width: 100%;
+  background: var(--coal);
+  color: var(--mist);
+  border: 1px solid var(--ember);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.65rem 0.9rem;
+  cursor: pointer;
+  appearance: none;
+  outline: none;
+  transition: border-color var(--ease), background var(--ease);
+}
+
+.forge-select:hover,
+.forge-select:focus { border-color: var(--gold); background: #321e0e; }
+
+.btn-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
 .forge-btn {
   display: block;
   width: 100%;
@@ -187,8 +227,14 @@ padding: 20px;
   transition: background var(--ease), border-color var(--ease);
 }
 
-.forge-btn:hover  { background: var(--ember); border-color: var(--gold); }
-.forge-btn:active { transform: scale(0.98); }
+.forge-btn:hover        { background: var(--ember); border-color: var(--gold); }
+.forge-btn:active       { transform: scale(0.98); }
+
+.forge-btn--secondary   { border-color: var(--steel); color: var(--mist); }
+.forge-btn--secondary:hover { background: var(--coal); border-color: var(--gold); color: var(--divine); }
+
+.forge-btn--ghost       { border-color: #3a2a18; color: var(--steel); }
+.forge-btn--ghost:hover { background: #1e1610; border-color: var(--ember); color: var(--mist); }
 
 #resultado {
   margin-top: 1.5rem;
@@ -209,8 +255,110 @@ padding: 20px;
   to   { opacity: 1; transform: translateY(0); }
 }
 
+.vitrine-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--coal);
+}
+
+#vitrine-titulo {
+  font-family: var(--font-title);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.vitrine-count {
+  font-family: var(--font-title);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+#vitrine {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.weapon-card {
+  background: var(--iron);
+  border: 1px solid var(--coal);
+  border-left: 3px solid var(--ember);
+  padding: 1rem 1.25rem;
+  position: relative;
+  animation: fadeIn 0.4s ease;
+  transition: border-color var(--ease);
+}
+
+.weapon-card:hover { border-left-color: var(--gold); }
+
+.weapon-card--letal {
+  border-left-color: var(--gold);
+  background: linear-gradient(90deg, rgba(122,59,16,.15) 0%, var(--iron) 40%);
+}
+
+.card-nome {
+  font-family: var(--font-title);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.6rem;
+}
+
+.card-stats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.card-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.card-label {
+  font-family: var(--font-title);
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--steel);
+  display: block;
+}
+
+.card-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-family: var(--font-title);
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--divine);
+  border: 1px solid var(--gold);
+  padding: 0.15rem 0.5rem;
+}
+
+.empty-msg {
+  font-family: var(--font-title);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--steel);
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
 @media (max-width: 480px) {
   .weapon-stats { gap: 1.25rem; }
   .forge-panel  { padding: 1.5rem; }
   .stat-value   { font-size: 1.1rem; }
+  .card-stats   { gap: 1rem; }
 }
