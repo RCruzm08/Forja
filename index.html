@@ -1,17 +1,81 @@
-<!DOCTYPE html> 
-    <html lang="pt-BR"> 
-    <head> 
-        
-    <meta charset="UTF-8"> 
-    <title>ilha de Lemnos</title> 
-    </head> 
-    <body> 
-        <h1>🏔️Monte Etna🏔️</h1>
-    <h2>⚒️Hephaistos⚒️</h2> 
-    <button onclick="forjarArma()" style="padding: 10px; cursor: pointer;">Melhorar Espada</button> 
-    <div id="resultado" style="margin-top: 20px; font-size: 20px;"></div> 
- 
-        <script src="script.js"></script>
-        <link rel="stylesheet" href="style.css">
-    </body> 
-    </html> 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ilha de Lemnos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="forge-glow"></div>
+
+  <div class="container">
+    <header>
+      <p class="eyebrow">Ilha de Lemnos</p>
+      <h1>Monte Etna</h1>
+      <p class="subtitle">⚒️Hephaistos⚒️</p>
+    </header>
+
+    <div class="forge-panel">
+
+      <div class="weapon-display">
+        <div class="weapon-name" id="weapon-name">Aguardando forja...</div>
+        <div class="weapon-stats">
+          <div class="stat">
+            <span class="stat-label">Dano</span>
+            <span class="stat-value" id="stat-dano">—</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Elemento</span>
+            <span class="stat-value" id="stat-elem">—</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Durabilidade</span>
+            <span class="stat-value" id="stat-dur">—</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="selectors">
+        <div class="select-group">
+          <label class="select-label" for="tipo-arma">Tipo de Arma</label>
+          <select id="tipo-arma" class="forge-select">
+            <option value="espada">⚔️ Espada</option>
+            <option value="arco">🏹 Arco</option>
+            <option value="adaga">🗡️ Adaga</option>
+            <option value="lanca">🔱 Lança</option>
+          </select>
+        </div>
+        <div class="select-group">
+          <label class="select-label" for="encantamento">Encantamento</label>
+          <select id="encantamento" class="forge-select">
+            <option value="fogo">🔥 Fogo</option>
+            <option value="gelo">❄️ Gelo</option>
+            <option value="raio">⚡ Raio</option>
+            <option value="veneno">☠️ Veneno</option>
+            <option value="divino">✨ Divino</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="forge-btn" onclick="forjarArma()">⚒️ Forjar Arma</button>
+        <button class="forge-btn forge-btn--secondary" onclick="filtrarLetais()">👑 Filtrar Letais</button>
+        <button class="forge-btn forge-btn--ghost" onclick="mostrarTodas()">📜 Ver Arsenal</button>
+      </div>
+
+      <div id="resultado"></div>
+    </div>
+
+    <div class="vitrine-header" id="vitrine-header" style="display:none;">
+      <span id="vitrine-titulo">Arsenal</span>
+      <span class="vitrine-count" id="vitrine-count"></span>
+    </div>
+    <div id="vitrine"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
